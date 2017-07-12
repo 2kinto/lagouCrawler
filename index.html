@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>前端开发招聘数据</title>
+    <script src="./echarts.js"></script>
+</head>
+<body>
+    <div id="salary" style="width: 600px;height:400px;"></div>
+    <div id="exp" style="width: 600px;height:400px;"></div>
+    <div id="edu" style="width: 600px;height:400px;"></div>
+
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var salary = echarts.init(document.getElementById('salary'));
+        var exp = echarts.init(document.getElementById('exp'));
+        var edu = echarts.init(document.getElementById('edu'));
+
+        // 薪资图
+        var salaryOption = {
+            title: {
+                text: '前端开发招聘数据'
+            },
+            tooltip: {},
+            legend: {
+                data:['薪资']
+            },
+            xAxis: {
+                data: ["10k以上","12k以上","15k以上","20k以上","25k以上","30k以上"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [95, 41, 108, 19, 10, 3]
+            }]
+        };
+
+        // 工作年限图
+        expOption = {
+            backgroundColor: '#2c343c',
+            visualMap: {
+                show: false,
+                min: 80,
+                max: 600,
+                inRange: {
+                    colorLightness: [0, 1]
+                }
+            },
+        series : [
+            {
+                name: '工作年限',
+                type: 'pie',
+                radius: '55%',
+                data:[
+                    {value:24, name:'经验不限'},
+                    {value:122, name:'1-3年'},
+                    {value:262, name:'3-5年'},
+                    {value:33, name:'5-10年'},
+                ],
+                roseType: 'angle',
+                label: {
+                    normal: {
+                        textStyle: {
+                            color: 'rgba(242, 255, 0, 1)'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        lineStyle: {
+                            color: 'rgba(255, 255, 255, 0.3)'
+                        }
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#c23531',
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(10, 237, 244, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+
+    eduOption = {
+        series : [
+            {
+                name: '学历要求',
+                type: 'pie',
+                radius: '55%',
+                data:[
+                    {value:279, name:'本科及以上'},
+                    {value:126, name:'大专及以上'},
+                    {value:43, name:'不限学历'},
+                ]
+            }
+        ]
+    };
+
+        // 使用刚指定的配置项和数据显示图表。
+        salary.setOption(salaryOption);
+        exp.setOption(expOption);
+        edu.setOption(eduOption);
+    </script>
+</body>
+</html>
