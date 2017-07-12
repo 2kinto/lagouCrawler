@@ -2,6 +2,8 @@ const https = require('https');
 const fs = require('fs');
 const cheerio = require('cheerio');
 
+// 爬取职位详情
+
 let jobData = [];
 let getResult = '';
 let count = 1;

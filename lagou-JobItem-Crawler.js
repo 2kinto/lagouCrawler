@@ -4,6 +4,8 @@ const cheerio = require('cheerio');
 
 let page = 1;
 
+// 爬取拉勾职位列表
+
 const options = function(){
     return {
         "hostname": "www.lagou.com",
