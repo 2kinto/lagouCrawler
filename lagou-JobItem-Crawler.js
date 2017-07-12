@@ -39,7 +39,7 @@ function saveData(jobItemData) {
     });
 }
 
-// cheerio筛选信息 获取job号
+// cheerio筛选信息 获取job号  cheerio 服务端的Jquery
 function JobFilter(getResult) {
     let $ = cheerio.load(getResult);
     $('.item_con_list>li')
@@ -91,7 +91,7 @@ function Samehada() {
 //             let jobItemData = jobItem.join(',');
 //             saveData(jobItemData);
 //         }
-//     }, 2000*i);
+//     }, 2000*i);    //讲一下这里
 // }
 
 function syncSetTime() {

@@ -117,12 +117,14 @@ function requestData(jobNum) {
         })
     }
 
+// 爬虫函数也是异步的 这里用到了async/wait 等待promise决议
+
     function syncSetTime() {
         return new Promise(function(resolve,reject){
             let syncSamehada = async() => {
-                await Samehada();
+                await Samehada();       //await阻塞了代码执行
             }
-                setTimeout(function(){
+                setTimeout(function(){   //为了不被拉勾封id 所以要限制请求时间 所以 嵌套了两层Promise
                     // console.log(`第${count++}次抓取`);
                     resolve(syncSamehada());
                 }, 1000);
